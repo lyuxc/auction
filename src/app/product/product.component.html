@@ -6,16 +6,16 @@
     </div>
   </div>
 </div> -->
-<div *ngFor="let tmp of products" class="col-md-4 col-sm-4 col-lg-4">
+<div *ngFor="let product of products" class="col-md-4 col-sm-4 col-lg-4">
   <div class="thumbnail">
     <img [src]="imgUrl" alt="">
     <div class="caption">
-      <h4 class="pull-right">{{tmp.price}}</h4>
-      <h4><a href="#" >{{tmp.title}}</a></h4>
-      <p>{{tmp.desc}}</p>
+      <h4 class="pull-right">{{product.price}}</h4>
+      <h4><a [routerLink]="['/product', product.title]">{{product.title}}</a></h4>
+      <p>{{product.desc}}</p>
     </div>
     <div>
-      <app-stars></app-stars>
+      <app-stars [rating]="product.rating"></app-stars>
     </div>
   </div>
 </div>
