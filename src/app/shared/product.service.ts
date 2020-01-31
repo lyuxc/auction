@@ -25,6 +25,10 @@ export class ProductService {
     return this.products;
   }
 
+  getAllCategories(): string[] {
+    return ["电子产品","硬件设备","图书"];
+  }
+ 
   getProduct(id: number): Product {
     return this.products.find((product) => product.id == id);
   }
@@ -37,7 +41,7 @@ export class ProductService {
 
 export class Product {
   constructor(
-    public id: number,
+    public id: number,  
     public title: string,
     public price: number,
     public rating: number,
