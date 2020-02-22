@@ -3,9 +3,9 @@
     <div class="form-group">
       <input class="form-control" placeholder="请输入商品名称、关键词、关键字" [formControl]="titleFilter">
     </div>
-  </div>
-</div>
-<div *ngFor="let product of products | filter:'title':keyword" class="col-md-4 col-sm-4 col-lg-4">
+  </div> 
+</div> -->
+<div *ngFor="let product of products | async" class="col-md-4 col-sm-4 col-lg-4">
   <div class="thumbnail">
     <img [src]="imgUrl" alt="">
     <div class="caption">
@@ -17,11 +17,11 @@
       <app-stars [rating]="product.rating"></app-stars>
     </div>
   </div>
-</div> -->
+</div>
 
-<div>商品信息</div>
+<!-- <div>商品信息</div>
 <ul>
   <li *ngFor="let product of products | async">{{product.title}}</li>
 </ul>
 
-<app-web-socket></app-web-socket>
+<app-web-socket></app-web-socket> -->

@@ -21,13 +21,23 @@ export class ProductDetailComponent implements OnInit {
   constructor(private routeInfo: ActivatedRoute,
               private productService: ProductService) {
     // this.productTitle = this.routeInfo.snapshot.params['prodTitle'];
-    let productId:number = this.routeInfo.snapshot.params["productId"];
+    // let productId:number = this.routeInfo.snapshot.params["productId"];
 
-    this.product = this.productService.getProduct(productId);
-    this.comments = this.productService.getCommentsForProductId(productId);
+    // this.product = this.productService.getProduct(productId);
+    // this.comments = this.productService.getCommentsForProductId(productId);
   }
 
   ngOnInit() {
+    let productId:number = this.routeInfo.snapshot.params["productId"];
+    this.productService.getProduct(productId).subscribe(
+      product => {
+        console.log("product", product)
+        this.product = product
+      }
+    );
+    this.productService.getCommentsForProductId(productId).subscribe(
+      comments => this.comments = comments
+    );
   }
 
   addComment() {

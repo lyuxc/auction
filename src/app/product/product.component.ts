@@ -12,15 +12,7 @@ import { Http, Headers } from '@angular/http';
 })
 export class ProductComponent implements OnInit {
 
-  // dataSource: Observable<any>;
-
-  products: Observable<any>;
-
-  // private products: Product[];
-
-  private keyword: string;
-
-  private titleFilter: FormControl = new FormControl();
+  private products: Observable<Product[]>;
 
   private imgUrl = 'http://placehold.it/320x150';
 
@@ -33,16 +25,10 @@ export class ProductComponent implements OnInit {
 
     this.products = this.http.get('/api/products', {headers: myHeaders})
       .map((res) => res.json());
- 
-    // this.titleFilter.valueChanges
-    //   .debounceTime(500)
-    //   .subscribe(
-    //     value => this.keyword = value
-    //   );
   }
 
   ngOnInit() {
-    // this.products = this.productService.getProducts();
+    this.products = this.productService.getProducts();
 
     // this.dataSource.subscribe(
     //   (data) => {
